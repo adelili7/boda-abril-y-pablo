@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación de Boda - Abril & Pablo</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(to bottom, #e4eff9, #c8d7ec, #b0c3e0);
+  color: #1f2b50;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Animación del anillo */
+.ring-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, #e0e8f5, #c1cde2);
+  animation: fadeIn 3s ease-in-out;
+}
+
+.ring {
+  width: 130px;
+  height: 130px;
+  border: 8px solid #b0bcd4;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 30px rgba(255,255,255,0.8);
+  animation: ringSpin 3s ease-in-out forwards;
+}
+
+.ring::after {
+  content: "💍";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes ringSpin {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  100% { transform: scale(1) rotate(720deg); opacity: 1; }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.2); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Texto inicial */
+.intro-text {
+  font-family: 'Great Vibes', cursive;
+  color: #1f2b50;
+  font-size: 2rem;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInText 4s ease forwards 2s;
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+/* Secciones */
+main {
+  display: none;
+  padding: 40px 20px;
+  background-image: url('https://i.imgur.com/UZxJ9qD.png'); /* fondo floral suave */
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #1a2e63;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: #3b3b3b;
+  margin-top: 5px;
+}
+
+h3 {
+  font-family: 'Great Vibes', cursive;
+  color: #1a2e63;
+  font-size: 2rem;
+  margin-top: 40px;
+}
+
+section {
+  margin: 40px auto;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Botones */
+.button {
+  display: inline-block;
+  background: #1a2e63;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  margin: 10px;
+  transition: 0.3s;
+}
+.button:hover {
+  background: #243b80;
+}
+
+/* Mapas */
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Comentarios y sugerencias */
+textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  resize: none;
+  margin-top: 10px;
+}
+
+button.enviar {
+  background-color: #1a2e63;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+button.enviar:hover {
+  background-color: #243b80;
+}
+
+/* Fotos */
+input[type="file"] {
+  margin-top: 10px;
+}
+img.preview {
+  width: 100px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* Botón de música */
+#botonMusica {
+  margin: 20px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="ring-container" id="intro">
+  <div class="ring"></div>
+  <div class="intro-text">Con amor eterno, Abril y Pablo</div>
+</div>
+
+<main id="contenido">
+  <h1>Abril & Pablo</h1>
+  <h2>Hija de Eva Aguilar Rendón y Pedro Pérez Hernández<br>
+  Hijo de Saray Hernández Santana y Pablo Tinoco Carranza (finado)</h2>
+
+  <section>
+    <p>“Y los dos serán una sola carne” — Mateo 19:6</p>
+    <p>Con la bendición de Dios y de nuestros padres, tenemos el honor de invitarte a celebrar nuestra unión.</p>
+  </section>
+
+  <section>
+    <h3>💒 Ceremonia Religiosa</h3>
+    <p><strong>Hora:</strong> 2:00 p.m.<br>
+    <strong>Lugar:</strong> Calle Álvaro Obregón #25, Colonia Centro, Panchimalco</p>
+    <iframe src="https://www.bing.com/maps?&ty=18&q=Calle%20%C3%81lvaro%20Obreg%C3%B3n%2025%2C%20Panchimalco%2C%2062900%20Jojutla%2C%20Morelos"></iframe>
+  </section>
+
+  <section>
+    <h3>🌸 Recepción</h3>
+    <p><strong>Hora:</strong> 4:00 p.m.<br>
+    <strong>Lugar:</strong> Jardín El Abuelo, Tlaquiltenango</p>
+    <iframe src="https://www.bing.com/maps?&ty=18&q=Jard%C3%ADn%20El%20Abuelo%20Tlaquiltenango"></iframe>
+  </section>
+
+  <section>
+    <h3>💖 Nuestros hermosos momentos</h3>
+    <p>“Tu amor es lo que he anhelado y el regalo que Dios me ha dado.”</p>
+  </section>
+
+  <section id="musica">
+    <h3>🎶 Sugerencia de música</h3>
+    <textarea id="sugerencia" rows="3" placeholder="Sugiere una canción para nuestra boda..."></textarea>
+    <button class="enviar" onclick="enviarSugerencia()">Enviar</button>
+    <ul id="listaMusica"></ul>
+  </section>
+
+  <section id="fotos">
+    <h3>📸 Comparte tus fotos del evento</h3>
+    <input type="file" accept="image/*" multiple onchange="mostrarFotos(event)">
+    <div id="galeria"></div>
+  </section>
+
+  <section id="comentarios">
+    <h3>💌 Deja tus buenos deseos</h3>
+    <textarea id="mensaje" rows="4" placeholder="Escribe tu mensaje con cariño..."></textarea>
+    <button class="enviar" onclick="enviarComentario()">Enviar</button>
+    <ul id="lista"></ul>
+  </section>
+
+  <section>
+    <h3>💬 Contáctanos</h3>
+    <a href="https://wa.me/5217771112233" target="_blank" class="button">WhatsApp Abril</a>
+    <a href="https://wa.me/5217772223344" target="_blank" class="button">WhatsApp Pablo</a>
+  </section>
+
+  <audio id="musicaFondo" src="https://www.dropbox.com/scl/fi/4svx4m9dsqkkb2d/Eternamente-Enamorados.mp3?raw=1" loop></audio>
+  <button id="botonMusica" class="button" style="display:none;" onclick="toggleMusica()">🔊 Pausar música</button>
+
+</main>
+
+<script>
+window.onload = function() {
+  setTimeout(() => {
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('contenido').style.display = 'block';
+
+    // Reproducir música y mostrar botón
+    const musica = document.getElementById("musicaFondo");
+    const boton = document.getElementById("botonMusica");
+    musica.play();
+    boton.style.display = "inline-block";
+
+  }, 4000);
+};
+
+// Función para pausar/reproducir música
+function toggleMusica() {
+  const musica = document.getElementById("musicaFondo");
+  const boton = document.getElementById("botonMusica");
+  if (musica.paused) {
+    musica.play();
+    boton.textContent = "🔊 Pausar música";
+  } else {
+    musica.pause();
+    boton.textContent = "🎵 Reproducir música";
+  }
+}
+
+// Comentarios
+function enviarComentario() {
+  const mensaje = document.getElementById("mensaje").value.trim();
+  if (!mensaje) return;
+  const li = document.createElement("li");
+  li.textContent = mensaje;
+  document.getElementById("lista").appendChild(li);
+  document.getElementById("mensaje").value = "";
+}
+
+// Sugerencias de música
+function enviarSugerencia() {
+  const
