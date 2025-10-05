@@ -6,87 +6,145 @@
 <title>Invitación de Boda - Abril & Pablo</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* Reset y tipografía */
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: 'Playfair Display', serif; color: #1c3d6a; line-height:1.6; background:#e3f2fb; overflow-x:hidden;}
+body {font-family:'Playfair Display', serif; background:#e3f2fb; color:#1c3d6a; overflow-x:hidden;}
 
-/* Fondo parallax de flores */
+/* Fondo romántico con flores */
 .parallax-bg {
-  position:fixed;
-  top:0; left:0; width:100%; height:100%;
+  position:fixed; top:0; left:0; width:100%; height:100%;
   background: radial-gradient(circle at 20% 30%, rgba(173,216,230,0.2), transparent 50%),
               radial-gradient(circle at 70% 60%, rgba(192,192,192,0.2), transparent 50%);
-  background-repeat:no-repeat;
-  background-size:cover;
-  z-index:-1;
+  background-repeat:no-repeat; background-size:cover; z-index:-1;
   animation: moverFondo 60s linear infinite;
 }
-@keyframes moverFondo {
-  0%{background-position:0 0, 100% 100%;}
-  100%{background-position:100% 100%, 0 0;}
-}
+@keyframes moverFondo {0%{background-position:0 0,100% 100%;}100%{background-position:100% 100%,0 0;}}
 
-/* Animación del anillo inicial */
+/* Pantalla inicial del anillo */
 #intro {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  height:100vh;
-  text-align:center;
-  background: radial-gradient(circle, #a3cce3 0%, #ffffff 80%);
-  perspective: 1000px;
+  display:flex; justify-content:center; align-items:center; flex-direction:column;
+  height:100vh; text-align:center; perspective:1200px;
 }
 #ring-container {
-  width:150px; height:150px;
+  width:180px; height:180px; cursor:pointer; transform-style: preserve-3d;
   animation: girar 4s linear infinite;
-  transform-style: preserve-3d;
-  margin-bottom:20px;
 }
-@keyframes girar {from {transform: rotateY(0deg);} to {transform: rotateY(360deg);} }
-#intro h1 {
-  font-size:3.5em;
-  font-family: 'Great Vibes', cursive;
-  text-shadow:2px 2px 20px rgba(255,255,255,0.8);
-  color:#3a6ea5;
-  opacity:0;
-  transition: opacity 2s ease;
+@keyframes girar {from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
+#intro h1 {font-size:3em; font-family:'Great Vibes', cursive; color:#3a6ea5; text-shadow:2px 2px 20px rgba(255,255,255,0.8); margin-top:20px;}
+
+/* Animación 3D de apertura */
+.opening-animation {
+  transform-origin: center; transform-style: preserve-3d;
+  transition: transform 2s ease-in-out;
 }
+.opened {transform: rotateY(180deg);}
+#contenido {display:none; padding:20px; text-align:center; animation: fadeIn 1s ease forwards;}
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
 
-/* Contenido principal oculto inicialmente */
-#contenido {display:none; padding:20px; text-align:center; animation: fadeIn 2s ease forwards;}
-@keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
-
-/* Títulos degradado romántico */
-h1,h2,h3 {
-  font-family:'Great Vibes', cursive;
-  background: linear-gradient(45deg, #3a6ea5, #c0c6c8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align:center;
-  margin-bottom:15px;
-  font-weight:700;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-}
-
-/* Secciones */
-section {
-  margin:30px auto;
-  max-width:900px;
-  background: rgba(255,255,255,0.85);
-  border-radius:25px;
-  padding:25px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.1);
-  transition: transform 0.8s ease, opacity 1s ease;
-  opacity:0;
-  transform:translateY(50px);
-}
-section.aparecer {opacity:1; transform:translateY(0);}
-section:hover {transform: scale(1.02);}
-
-/* Párrafos románticos */
+h1,h2,h3 {font-family:'Great Vibes', cursive; background: linear-gradient(45deg,#3a6ea5,#c0c6c8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-align:center; margin-bottom:15px; font-weight:700; text-shadow: 2px 2px 10px rgba(0,0,0,0.1);}
+section {margin:30px auto; max-width:900px; background: rgba(255,255,255,0.85); border-radius:25px; padding:25px; box-shadow:0 6px 15px rgba(0,0,0,0.1);}
 p {font-family:'Playfair Display', serif; font-size:1.2em; color:#3a5670; margin-bottom:15px;}
+textarea, input {width:80%; padding:12px; margin:10px 0; border-radius:10px; border:1px solid #ccc; font-family:'Playfair Display', serif; font-size:1.1em;}
+button {padding:12px 25px; border:none; background:#3a6ea5; color:white; border-radius:12px; cursor:pointer; font-family:'Playfair Display', serif; margin:5px; font-weight:bold;}
+button:hover {background:#1c3d6a; box-shadow:0 0 12px #3a6ea5;}
+iframe {width:90%; height:300px; border:none; border-radius:15px;}
+img {border-radius:12px; margin:5px; transition: transform 0.5s ease;}
+img:hover {transform: scale(1.05);}
+#contador {font-size:1.5em; color:#1c3d6a; font-weight:bold;}
+</style>
+</head>
+<body>
 
-/* Inputs y textareas */
-textarea, input {width:80%; padding:12px;
-  
+<div class="parallax-bg"></div>
+
+<!-- Animación inicial con anillo -->
+<div id="intro">
+  <div id="ring-container" class="opening-animation">
+    <img src="images/ring.jpg" alt="Anillo">
+  </div>
+  <h1 id="intro-text">Con amor eterno, Abril y Pablo 💍<br>¡Toca el anillo para abrir la invitación!</h1>
+</div>
+
+<main id="contenido">
+  <section>
+    <h1>¡Nuestra boda!</h1>
+    <p>"Y los dos serán una sola carne" - Mateo 19:6</p>
+    <p><strong>Abril Pérez Aguilar</strong><br>Hija de Eva Aguilar Rendón y Pedro Pérez Hernández</p>
+    <p><strong>Pablo Eliel Tinoco Hernández</strong><br>Hijo de Saray Hernández Santana y Pablo Tinoco Carranza (finado)</p>
+    <div id="contador">Calculando tiempo restante...</div>
+  </section>
+
+  <section>
+    <h2>Ceremonia Religiosa</h2>
+    <p>28 de diciembre de 2025 | 2:00 p.m.<br>Calle Álvaro Obregón #25, Colonia Centro, Panchimalco, Jojutla</p>
+    <iframe src="https://www.bing.com/maps?&ty=18&q=Calle%20%C3%81lvaro%20Obreg%C3%B3n%2025%2C%20Panchimalco%2C%2062900%20Jojutla%2C%20Morelos"></iframe>
+  </section>
+
+  <section>
+    <h2>Recepción</h2>
+    <p>4:00 p.m. | Jardín El Abuelo, Tlaquiltenango</p>
+    <iframe src="https://www.bing.com/maps?&ty=18&q=Jard%C3%ADn%20El%20Abuelo%20Tlaquiltenango"></iframe>
+  </section>
+
+  <section>
+    <h2>Nuestros hermosos momentos</h2>
+    <p>"Tu amor es lo que he anhelado y el regalo que Dios me ha dado"</p>
+    <img src="images/photo1.jpg" alt="Foto 1" width="200">
+    <img src="images/photo2.jpg" alt="Foto 2" width="200">
+    <img src="images/photo3.jpg" alt="Foto 3" width="200">
+  </section>
+
+  <section>
+    <h2>Sugerencia de música</h2>
+    <textarea placeholder="Escribe tu canción favorita para nuestra boda"></textarea><br>
+    <button>Enviar sugerencia</button>
+  </section>
+
+  <section>
+    <h2>Sube tus fotos del evento</h2>
+    <input type="file" multiple><br>
+    <button>Subir fotos</button>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <button onclick="window.open('https://wa.me/5217774914500')">WhatsApp Abril</button>
+    <button onclick="window.open('https://wa.me/5217341123645')">WhatsApp Pablo</button>
+  </section>
+
+  <audio id="musicaFondo" src="music/eternamente.mp3" loop></audio>
+</main>
+
+<script>
+// Al tocar el anillo, se abre y muestra contenido + música
+const ring = document.getElementById('ring-container');
+ring.addEventListener('click', () => {
+  ring.classList.add('opened');
+  setTimeout(() => {
+    document.getElementById('intro').style.display='none';
+    document.getElementById('contenido').style.display='block';
+    const audio = document.getElementById('musicaFondo');
+    if(audio) audio.play().catch(()=>console.log("Se requiere interacción para reproducir música"));
+  }, 1000); // espera 1s para animación 3D
+});
+
+// Contador regresivo
+function actualizarContador() {
+  const fechaBoda = new Date("December 28, 2025 14:00:00").getTime();
+  const ahora = new Date().getTime();
+  const distancia = fechaBoda - ahora;
+  if(distancia<0){
+    document.getElementById("contador").innerHTML="¡Hoy es nuestra boda! 💖";
+    return;
+  }
+  const dias = Math.floor(distancia/(1000*60*60*24));
+  const horas = Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
+  const minutos = Math.floor((distancia%(1000*60*60))/(1000*60));
+  const segundos = Math.floor((distancia%(1000*60))/1000);
+  document.getElementById("contador").innerHTML=`Faltan ${dias} días, ${horas} h, ${minutos} min y ${segundos} s para nuestra boda 💖`;
+}
+setInterval(actualizarContador,1000);
+</script>
+
+</body>
+</html>
+ 
